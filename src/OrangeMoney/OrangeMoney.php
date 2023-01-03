@@ -4,16 +4,28 @@ class OrangeMoney
 {
 
     //To get access token
-    private static String $om_token_url;
-    private static String $auth_token;
+    private static string $om_token_url;
+    private static string $auth_token;
 
     //TO Init the Merchant Payment
-    private static String $om_mp_init_url;
-    private static String $om_mp_pay_url;
-    private static String $om_channel_user;
-    private static String $om_pin_code;
-    private static String $om_notify_url;
+    private static string $om_mp_init_url;
+    private static string $om_mp_pay_url;
+    private static string $om_channel_user;
+    private static string $om_pin_code;
+    private static string $om_notify_url;
 
+    public function __construct($om_token_url, $auth_token, $om_mp_init_url,
+                                $om_mp_pay_url, $om_channel_user, $om_pin_code, $om_notify_url)
+    {
+        self::$om_token_url = $om_token_url;
+        self::$auth_token = $auth_token;
+
+        self::$om_mp_init_url = $om_mp_pay_url;
+        self::$om_mp_pay_url = self::$om_mp_pay_url;
+        self::$om_channel_user = self::$om_channel_user;
+        self::$om_pin_code = $om_pin_code;
+        self::$om_notify_url = $om_notify_url;
+    }
 
     /**Orange Money Merchant Pay**/
     /**
@@ -34,7 +46,7 @@ class OrangeMoney
             list($mp_init, $http_code_mp_init) = self::MerchantPaymentInit(self::$om_mp_init_url, self::$auth_token, $token->token_type, $token->access_token);
             $paiement = $mp_init;
             if ($http_code_mp_init == 200) {
-                list($mp_pay, $http_code_mp_pay) = self::MerchantPaymentPay(self::$om_mp_pay_url,self::$auth_token, $token->token_type, $token->access_token, $phone, self::$om_channel_user, $montant, $description, $order_id, self::$om_pin_code, $mp_init->data->payToken, self::$om_notify_url);
+                list($mp_pay, $http_code_mp_pay) = self::MerchantPaymentPay(self::$om_mp_pay_url, self::$auth_token, $token->token_type, $token->access_token, $phone, self::$om_channel_user, $montant, $description, $order_id, self::$om_pin_code, $mp_init->data->payToken, self::$om_notify_url);
                 $paiement = $mp_pay;
                 $status = true;
             }
