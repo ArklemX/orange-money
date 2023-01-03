@@ -1,0 +1,45 @@
+{
+  "name": "karbura/orange-money",
+  "description": "The Orange Money Payment API integration for PHP",
+  "keywords": [
+    "php",
+    "extension",
+    "payment",
+    "api",
+    "implementation"
+  ],
+  "type": "php-extension",
+  "license": "BSD-3-Clause",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "KARBURA S.A",
+      "email": "contact@karbura.com"
+    }
+  ],
+
+  "require": {
+    "ext-json": "*",
+    "yiisoft/yii2": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "OrangeMoney\\": "src/OrangeMoney"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true
+    }
+  }
+}
