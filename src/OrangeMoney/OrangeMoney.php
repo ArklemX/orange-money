@@ -14,19 +14,6 @@ class OrangeMoney
     private static string $om_pin_code;
     private static string $om_notify_url;
 
-    public function __construct($om_token_url, $auth_token, $om_mp_init_url,
-                                $om_mp_pay_url, $om_channel_user, $om_pin_code, $om_notify_url)
-    {
-        self::$om_token_url = $om_token_url;
-        self::$auth_token = $auth_token;
-
-        self::$om_mp_init_url = $om_mp_pay_url;
-        self::$om_mp_pay_url = self::$om_mp_pay_url;
-        self::$om_channel_user = self::$om_channel_user;
-        self::$om_pin_code = $om_pin_code;
-        self::$om_notify_url = $om_notify_url;
-    }
-
     /**Orange Money Merchant Pay**/
     /**
      * @description Make OrangeMerchantPay
@@ -311,7 +298,7 @@ class OrangeMoney
     }
 
     /**
-     * @return String
+     * @return string
      */
     public static function getOmTokenUrl(): string
     {
@@ -319,11 +306,109 @@ class OrangeMoney
     }
 
     /**
-     * @param String $om_token_url
+     * @param string $om_token_url
      */
     public static function setOmTokenUrl(string $om_token_url): void
     {
         self::$om_token_url = $om_token_url;
     }
+
+    /**
+     * @return string
+     */
+    public static function getAuthToken(): string
+    {
+        return self::$auth_token;
+    }
+
+    /**
+     * @param string $auth_token
+     */
+    public static function setAuthToken(string $auth_token): void
+    {
+        self::$auth_token = $auth_token;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getOmMpInitUrl(): string
+    {
+        return self::$om_mp_init_url;
+    }
+
+    /**
+     * @param string $om_mp_init_url
+     */
+    public static function setOmMpInitUrl(string $om_mp_init_url): void
+    {
+        self::$om_mp_init_url = $om_mp_init_url;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getOmMpPayUrl(): string
+    {
+        return self::$om_mp_pay_url;
+    }
+
+    /**
+     * @param string $om_mp_pay_url
+     */
+    public static function setOmMpPayUrl(string $om_mp_pay_url): void
+    {
+        self::$om_mp_pay_url = $om_mp_pay_url;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getOmChannelUser(): string
+    {
+        return self::$om_channel_user;
+    }
+
+    /**
+     * @param string $om_channel_user
+     */
+    public static function setOmChannelUser(string $om_channel_user): void
+    {
+        self::$om_channel_user = $om_channel_user;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getOmPinCode(): string
+    {
+        return self::$om_pin_code;
+    }
+
+    /**
+     * @param string $om_pin_code
+     */
+    public static function setOmPinCode(string $om_pin_code): void
+    {
+        self::$om_pin_code = $om_pin_code;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getOmNotifyUrl(): string
+    {
+        return self::$om_notify_url;
+    }
+
+    /**
+     * @param string $om_notify_url
+     */
+    public static function setOmNotifyUrl(string $om_notify_url): void
+    {
+        self::$om_notify_url = $om_notify_url;
+    }
+
+
 
 }
