@@ -297,4 +297,21 @@ class OrangeMoney
 
         return array($cash_in_pay, $http_code_cash_in_pay);
     }
+
+    /**
+     * @return String
+     */
+    public static function getOmTokenUrl(): string
+    {
+        return self::$om_token_url;
+    }
+
+    /**
+     * @param String $om_token_url
+     */
+    public static function setOmTokenUrl(string $om_token_url): void
+    {
+        self::$om_token_url = $om_token_url;
+    }
+
 }
