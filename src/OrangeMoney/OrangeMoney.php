@@ -4,15 +4,15 @@ class OrangeMoney
 {
 
     //To get access token
-    private static string $om_token_url;
-    private static string $auth_token;
+    protected static string $om_token_url;
+    protected static string $auth_token;
 
     //TO Init the Merchant Payment
-    private static string $om_mp_init_url;
-    private static string $om_mp_pay_url;
-    private static string $om_channel_user;
-    private static string $om_pin_code;
-    private static string $om_notify_url;
+    protected static string $om_mp_init_url;
+    protected static string $om_mp_pay_url;
+    protected static string $om_channel_user;
+    protected static string $om_pin_code;
+    protected static string $om_notify_url;
 
     public static function construct ($om_token_url, $auth_token, $om_mp_init_url,
                                 $om_mp_pay_url, $om_channel_user, $om_pin_code, $om_notify_url)
