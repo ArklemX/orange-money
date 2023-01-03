@@ -14,7 +14,7 @@ class OrangeMoney
     private static string $om_pin_code;
     private static string $om_notify_url;
 
-    public function __construct($om_token_url, $auth_token, $om_mp_init_url,
+    public static function construct ($om_token_url, $auth_token, $om_mp_init_url,
                                 $om_mp_pay_url, $om_channel_user, $om_pin_code, $om_notify_url)
     {
         self::$om_token_url = $om_token_url;
