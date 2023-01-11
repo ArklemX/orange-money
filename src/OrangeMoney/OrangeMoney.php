@@ -7,7 +7,6 @@ class OrangeMoney
     protected static string $om_token_url;
     protected static string $auth_token;
     
-
     //TO Init the Merchant Payment
     protected static string $om_mp_init_url;
     protected static string $om_mp_pay_url;
