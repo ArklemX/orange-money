@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git clone') {
+            steps {
+                bat 'git clone https://github.com/ArklemX/orange-money.git'
+            }
+        }
+    }
+}
