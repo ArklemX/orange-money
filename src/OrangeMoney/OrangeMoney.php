@@ -1,7 +1,9 @@
 <?php
+namespace OrangeMoney;
 
 class OrangeMoney
 {
+	//Jenkin's file test
 
     //To get access token
     protected static string $om_token_url;
@@ -28,6 +30,7 @@ class OrangeMoney
     }
 
     /**Orange Money Merchant Pay**/
+
     /**
      * @description Make OrangeMerchantPay
      * @param $phone

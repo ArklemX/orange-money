@@ -24,7 +24,8 @@
     "yiisoft/yii2": "*"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "phpdocumentor/phpdocumentor": "3.*"
   },
 
   "autoload": {
@@ -39,7 +40,8 @@
   },
   "config": {
     "allow-plugins": {
-      "yiisoft/yii2-composer": true
+      "yiisoft/yii2-composer": true,
+      "symfony/flex": true
     }
   }
 }
