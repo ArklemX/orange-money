@@ -1,1 +1,14 @@
+name: First github action
 
+on:
+  push:
+    branches: main
+    
+jobs:
+  test:
+    name: Make a pull
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: pull
+      - run: git pull
