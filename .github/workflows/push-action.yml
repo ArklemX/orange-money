@@ -11,8 +11,8 @@ jobs:
       - name: ssh connection
         uses: appleboy/ssh-action@master
         with:
-          host: 7.tcp.eu.ngrok.io
-          port: 14377
+          host: 192.168.198.1
+          port: 22
           username: stage
           key: ${{ secrets.SECRET_KEY }}
           script: |
