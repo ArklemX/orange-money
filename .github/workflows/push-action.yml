@@ -1,14 +1,19 @@
 name: First github action
-
 on:
   push:
-    branches: main
+    branches: [ main ]
     
 jobs:
-  test:
-    name: Make a pull
+  job_one:
+    name: make a ls
     runs-on: ubuntu-latest
-    
     steps:
-      - name: pull
-        run: git pull
+      - name: ssh connection
+        uses: appleboy/ssh-action@master
+        with:
+          host: 7.tcp.eu.ngrok.io
+          port: 14377
+          username: stage
+          key: ${{ secrets.SECRET_KEY }}
+          script: |
+            dir
