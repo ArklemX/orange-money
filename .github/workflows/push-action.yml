@@ -8,7 +8,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Add Auth Host
-      run : ssh-keyscan -H ${{ secrets.SSH_HOST }} >> known_hosts
+      run : ssh-add
       
     - name: Start SSH agent
       uses: webfactory/ssh-agent@v0.7.0
