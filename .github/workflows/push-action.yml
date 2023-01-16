@@ -1,19 +1,15 @@
-name: First github action
-on:
-  push:
-    branches: [ main ]
-    
+name: Deploy to remote server
+on: push
 jobs:
-  job_one:
-    name: make a ls
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: ssh connection
-        uses: appleboy/ssh-action@master
-        with:
-          host: 92.243.20.86
-          port: 22
-          username: dev
-          key: ${{ secrets.SECRET_KEY }}
-          script: |
-            ls
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Start SSH agent
+      uses: webfactory/ssh-agent@v0.3.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Deploy code
+      run: |
+        ssh dev@92.243.20.86 "ls"
