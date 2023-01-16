@@ -15,12 +15,12 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       
-    - name : Setup ssh key
-      run: ssh-keys setup-ssh --ssh-private-key ${{ secrets.SSH_PRIVATE_KEY }} --ssh-public-key ${{ secrets.SSH_PUBLIC_KEY }}
+#     - name : Setup ssh key
+#       run: ssh-keys setup-ssh --ssh-private-key ${{ secrets.SSH_PRIVATE_KEY }} --ssh-public-key ${{ secrets.SSH_PUBLIC_KEY }}
       
     - name: Deploy code
       run: 
-         ssh dev@${{ secrets.SSH_HOST }}
+         ssh -i  ${{ secrets.SSH_PRIVATE_KEY }} dev@${{ secrets.SSH_HOST }}
 #         ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     - name: make a ls
       run: ls       
