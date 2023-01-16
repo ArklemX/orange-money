@@ -6,6 +6,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      
+    - name: activate env variables
+      run: |
+        export ACTIONS_ALLOW_UNSECURE_COMMANDS=true
+      
     - name: Start SSH agent
       uses: webfactory/ssh-agent@v0.3.0
       with:
