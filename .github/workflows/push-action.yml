@@ -11,9 +11,9 @@ jobs:
       - name: ssh connection
         uses: appleboy/ssh-action@master
         with:
-          host: 192.168.198.1
+          host: 92.243.20.86
           port: 22
-          username: stage
+          username: dev
           key: ${{ secrets.SECRET_KEY }}
           script: |
-            dir
+            ls
