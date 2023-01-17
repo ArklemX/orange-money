@@ -7,11 +7,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Generate keys
-      run : |
-        ssh-keygen -t rsa -b 4096 -C "github actions key" -f ~/.ssh/github_actions_rsa
-        cat  ~/.ssh/github_actions_rsa
-        ls 
-        cat ~/.ssh/github_actions_rsa.pub
-          
+    - name: Checkout repo
+      run : actions/checkout@v
+
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          ls
+      
