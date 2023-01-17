@@ -10,14 +10,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       
-    - name: Start SSH agent
-      uses: webfactory/ssh-agent@v0.7.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      
-    - name: Deploy code
-      run: 
-         ssh -i  ${{ secrets.SSH_PRIVATE_KEY }} dev@${{ secrets.SSH_HOST }}
-#         ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-    - name: make a ls
-      run: ls       
+    - name: Generate keys
+      run : |
+        ssh-keygen -t rsa -b 4096 -C "github actions key" -f ~/.ssh/github_actions_rsa
+        cd /root/.ssh/
+        ls
+        cat github_actions_rsa
+        ls
+        ls
+        cat github_actions_rsa.pub
+          
