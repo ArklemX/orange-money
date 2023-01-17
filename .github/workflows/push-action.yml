@@ -13,11 +13,9 @@ jobs:
     - name: Generate keys
       run : |
         ssh-keygen -t rsa -b 4096 -C "github actions key" -f ~/.ssh/github_actions_rsa
-        su
-        cd /root/.ssh/
-        ls
-        cat github_actions_rsa
+
+        cat ~/.ssh/github_actions_rsa
         ls
         ls
-        cat github_actions_rsa.pub
+        cat ~/.ssh/github_actions_rsa.pub
           
