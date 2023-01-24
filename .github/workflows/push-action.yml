@@ -18,7 +18,7 @@ jobs:
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete --exclude="" --include="" --filter=""
-          remote_path: ~/httpdocs/
+          remote_path: /empty
           remote_host: ${{ secrets.HOST }}
           remote_user: dev
           remote_key: ${{ secrets.DEPLOY_KEY }}
