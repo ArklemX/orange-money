@@ -1,33 +1,24 @@
-name: Deploy
- 
-on: [push]
- 
+name: DEPLOY
+
+# Sur un "push" dans la branche "main"
+on:
+  push:
+    branches:
+    - main
+
 jobs:
-  build:
- 
+  deploy:
     runs-on: ubuntu-latest
- 
     steps:
-    - uses: actions/checkout@v1
- 
-#     - name: Copy repository contents via scp
-#       uses: appleboy/scp-action@master
-#       env:
-#         HOST: ${{ secrets.HOST }}
-#         USERNAME: ${{ secrets.USERNAME }}
-#         PORT: ${{ secrets.PORT }}
-#         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-#         PASSPRHASE: ${{ secrets.PASSPRHASE }}
-#       with:
-#         source: "."
-#         target: "empty"
- 
-    - name: Executing remote command
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        PASSPRHASE: ${{ secrets.PASSPRHASE }}
-        script: ls
+      - uses: actions/checkout@v2
+
+      
+      # Rsync deploy
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete --exclude="" --include="" --filter=""
+          remote_path: ~/httpdocs/
+          remote_host: ${{ secrets.HOST }}
+          remote_user: dev
+          remote_key: ${{ secrets.DEPLOY_KEY }}
