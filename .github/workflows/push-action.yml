@@ -1,24 +1,16 @@
-name: DEPLOY
-
-# Sur un "push" dans la branche "main"
-on:
-  push:
-    branches:
-    - main
-
+name: remote ssh command
+on: [push]
 jobs:
-  deploy:
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      
-      # Rsync deploy
-      - name: rsync deployments
-        uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -avzr --delete --exclude="" --include="" --filter=""
-          remote_path: /empty
-          remote_host: ${{ secrets.HOST }}
-          remote_user: dev
-          remote_key: ${{ secrets.DEPLOY_KEY }}
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: whoami
